@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import AddHabitForm from './components/AddHabitForm';
+import HabitList from './components/HabitList';
 
 function App() {
+	const [habits, setHabits] = useState([]);
+
+	const addHabit = (name, frequency) => {
+		const newHabit = {name, frequency, completed: 0, completionDate};
+		setHabits([...habits, newHabit]);
+	};
+
+	const markAsCompleted = (habit) => {
+		const todayDate = new Date();
+	}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	  <div>
+	  	<h1> Habit Tracker </h1>
+	  </div>
+      );
 }
 
 export default App;
