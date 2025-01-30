@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AddHabitForm from './components/AddHabitForm';
 import HabitList from './components/HabitList';
+import { Habit } from './types';
 
 function App() {
 	const [habits, setHabits] = useState([]);
