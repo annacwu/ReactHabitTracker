@@ -3,8 +3,8 @@ import AddHabitForm from './components/AddHabitForm';
 import HabitList from './components/HabitList';
 import { Habit } from './types';
 
-function App() {
-	const [habits, setHabits] = useState([]);
+const App: React.FC = () => {
+	const [habits, setHabits] = useState<Habit[]>([]);
 
 	const addHabit = (name, frequency) => {
 		const newHabit = {name, frequency, completed: 0, completionDate};
