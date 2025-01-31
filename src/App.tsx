@@ -23,11 +23,7 @@ const App: React.FC = () => {
 	  <div>
 	  	<h1> Habit Tracker </h1>
 		<AddHabitForm addHabit={addHabit} />
-		<ul> 
-			{habits.map((habit) => (
-				<HabitItem habit={habit} onComplete={onComplete} onDelete={onDelete}/>
-			))}
-		</ul>
+		<HabitList habits={habits} onComplete={onComplete} onDelete={onDelete} />
 	  </div>
       );
 }
