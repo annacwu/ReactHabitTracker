@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import AddHabitForm from './components/AddHabitForm';
 import HabitList from './components/HabitList';
 import HabitItem from './components/HabitItem';
-import { Habit, isCustomFrequency } from './types';
+import { Habit } from './types';
+import { isCustomFrequency } from './utils';
 
 const App: React.FC = () => {
 	const [habits, setHabits] = useState<Habit[]>(() => {
@@ -30,7 +31,7 @@ const App: React.FC = () => {
 	  <div>
 	  	<h1> Habit Tracker </h1>
 		<AddHabitForm addHabit={addHabit} />
-		<HabitList habits={habits} onComplete={onComplete} onDelete={onDelete} />
+		<HabitList habits={habits} />
 	  </div>
       );
 }

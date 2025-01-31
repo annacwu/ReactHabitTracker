@@ -13,7 +13,4 @@ export type Habit<Freq = Frequency> = {
     completionDates: string[];
 }
 
-// not entirely sure if i should define this typeguard here or somewhere else
-export function isCustomFrequency(habit: Habit): habit is Habit<CustomFrequency> {
-	return typeof habit.frequency === "object" && "days" in habit.frequency;
-}
+
