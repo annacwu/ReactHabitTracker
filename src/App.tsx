@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AddHabitForm from './components/AddHabitForm';
 import HabitList from './components/HabitList';
 import HabitItem from './components/HabitItem';
 import { Habit, isCustomFrequency } from './types';
 
 const App: React.FC = () => {
-	const [habits, setHabits] = useState<Habit[]>([]);
+	const [habits, setHabits] = useState<Habit[]>(() => {
+		const storedHabits = localStorage.getItem("habits");
+		return storedHabits ? JSON.parse(storedHabits) : [];
+	});
+	
+	useEffect(() => {
+		localStorage.setItem("habits", JSON.stringify(habits));
+	}, [habits]);
 
 	const addHabit = (habit: Habit) => {
 		setHabits((prev) => [...prev, habit]);
