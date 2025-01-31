@@ -1,4 +1,7 @@
 import React from 'react';
+import { Habit } from '../types';
+
+
 
 function HabitList() {
     return (
