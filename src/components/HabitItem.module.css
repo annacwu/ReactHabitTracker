@@ -9,3 +9,45 @@
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.habitTitle {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.habitDetails {
+  font-size: 16px;
+  color: #555;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.completeButton {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.completeButton:hover {
+  background-color: #218838;
+}
+
+.deleteButton {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  background-color: #c82333;
+}

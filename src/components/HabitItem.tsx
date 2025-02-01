@@ -15,11 +15,13 @@ const HabitItem: React.FC<HabitItemProps> = ({ habit, onComplete, onDelete }) =>
 
     return (
         <div className={styles.habitCard}>
-            <h3>{habit.name}</h3>
-            <p>Frequency: {frequencyText} </p>
-            <p>Completions: {habit.completions}</p>
-            <button onClick={() => onComplete(habit)}>Complete</button>
-            <button onClick={() => onDelete(habit)}>Delete</button>
+            <h3 className={styles.habitTitle}>{habit.name}</h3>
+            <p className={styles.habitDetails}>Frequency: {frequencyText} </p>
+            <p className={styles.habitDetails}>Completions: {habit.completions}</p>
+			<div className={styles.buttonGroup}>
+            	<button className={styles.completeButton} onClick={() => onComplete(habit)}>Complete</button>
+            	<button className={styles.deleteButton} onClick={() => onDelete(habit)}>Delete</button>
+			</div>
         </div>
     );
 }
