@@ -10,9 +10,19 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.health { background-color: #b5e8c3; }
+.work { background-color: #e8beb5; }
+.social { background-color: #b5cee8; }
+.fun { background-color: #e8b5e7; }
+.other { background-color: #e8e7b5; }
+
 .habitTitle {
   font-size: 18px;
   font-weight: bold;
+}
+
+.habitCard:hover {
+	transform: scale(1.02);
 }
 
 .habitDetails {

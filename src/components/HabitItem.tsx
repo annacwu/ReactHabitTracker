@@ -13,8 +13,9 @@ const HabitItem: React.FC<HabitItemProps> = ({ habit, onComplete, onDelete }) =>
 	const frequencyText = isCustomFrequency(habit) 
 		? `${habit.frequency.days.join(", ")}` : String(habit.frequency);
 
+	const categoryClass = styles[habit.category?.toLowerCase() || "other"];
     return (
-        <div className={styles.habitCard}>
+        <div className={`${styles.habitCard} ${categoryClass}`}>
             <h3 className={styles.habitTitle}>{habit.name}</h3>
             <p className={styles.habitDetails}>Frequency: {frequencyText} </p>
             <p className={styles.habitDetails}>Completions: {habit.completions}</p>

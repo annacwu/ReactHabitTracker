@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Habit, Frequency, FrequencyLiteral, CustomFrequency } from "../types";
+import { Habit, Frequency, FrequencyLiteral, CustomFrequency, CategoryLiteral } from "../types";
 
 interface AddHabitFormProps {
 	addHabit: (habit: Habit) => void;
@@ -9,6 +9,7 @@ const AddHabitForm: React.FC<AddHabitFormProps> = ({ addHabit }) => {
 	const [name, setName] = useState<string>("");
 	const [frequency, setFrequency] = useState<FrequencyLiteral>("Daily");
 	const [customDays, setCustomDays] = useState<string[]>([]);
+	const [category, setCategory] = useState<CategoryLiteral>("Health");
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
@@ -26,13 +27,15 @@ const AddHabitForm: React.FC<AddHabitFormProps> = ({ addHabit }) => {
 			name, 
 			frequency: habitFrequency,
 			completions: 0,
-			completionDates: []
+			completionDates: [],
+			category // maybe change this here?
 		};
 
 		addHabit(newHabit);
 		setName("");
 		setFrequency("Daily");
 		setCustomDays([]);
+		setCategory("Health");
 	}
 
 	return (
@@ -71,6 +74,14 @@ const AddHabitForm: React.FC<AddHabitFormProps> = ({ addHabit }) => {
 					)}
 				</div>
 			)}
+
+			<select value={category} onChange={(e) => setCategory(e.target.value as CategoryLiteral)}>
+				<option value="Health">Health</option>
+				<option value="Work">Work</option>
+				<option value="Social">Social</option>
+				<option value="Fun">Fun</option>
+				<option value="Other">Other</option>
+			</select>
 
 			<button type="submit">Add Habit</button>
 		</form>
