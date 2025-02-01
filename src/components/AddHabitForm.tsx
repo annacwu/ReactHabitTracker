@@ -28,7 +28,7 @@ const AddHabitForm: React.FC<AddHabitFormProps> = ({ addHabit }) => {
 			frequency: habitFrequency,
 			completions: 0,
 			completionDates: [],
-			category // maybe change this here?
+			category 
 		};
 
 		addHabit(newHabit);
