@@ -5,10 +5,12 @@ import { filterHabits, isCustomFrequency } from '../utils';
 
 interface HabitListProps {
     habits: Habit[];
+	onComplete: (habit: Habit) => void;
+	onDelete: (habit: Habit) => void;
 }
 
 
-const HabitList:React.FC<HabitListProps> = ({ habits }) => {
+const HabitList:React.FC<HabitListProps> = ({ habits, onComplete, onDelete }) => {
     const today = new Date();
 	const  { needsCompletion, doesNotNeedCompletion } = filterHabits(habits, today);
 
@@ -20,7 +22,9 @@ const HabitList:React.FC<HabitListProps> = ({ habits }) => {
                     needsCompletion.map((habit) => (
                         <HabitItem
                         key={habit.name}
-                        habit={habit} />
+                        habit={habit}
+						onComplete={onComplete}
+						onDelete={onDelete} />
                     ))
                 ) : (
                     <p>No habits to complete today!</p>
@@ -32,7 +36,9 @@ const HabitList:React.FC<HabitListProps> = ({ habits }) => {
                 {doesNotNeedCompletion.map((habit) => (
                     <HabitItem
                     key={habit.name}
-                    habit={habit} />
+                    habit={habit} 
+					onComplete={onComplete}
+					onDelete={onDelete} />
                 ))}
             </div>
         </div>
