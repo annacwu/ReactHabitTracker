@@ -33,4 +33,8 @@ additional one with the components that is specific to the `HabitItem` component
     - It is pretty similar to what the rest of the app does, I just added an
     extra selection to the form, a category literal type in `types.ts`, and the 
     habit card changes it's background color depending on which category the 
-    habit is. 
+    habit is.
+
+(P.S. There were a bunch of files from the initial project creation with create-react-app
+and I wasn't sure what to do with because I wasn't using them for development, so I put 
+them in a folder called xtra. So that's what that is.)
