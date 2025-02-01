@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Habit Tracker in React (Learning React from Typescript)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Note: Much of the logic in the code I kept the same, the primary differences
+take place with rendering everything on screen using TSX. 
 
-## Available Scripts
+### Hooks:
+- I primarily used the `useState` hook to add state to my components, and
+allow the user to input each of the different properties of a Habit.
+- I did use `useEffect` once, though only briefly after I looked up how to do
+the local browser storage stuff in React.
 
-In the project directory, you can run:
+### Reusing Typescript:
+- `types.ts` contains all the same typing from the top of my `app.ts` file in
+my last project, plus one new one I added this time around.
+- `utils.ts` contains all the typescript logic from the previous iteration of
+this app, including the `isCustomFrequency` typeguard.
+    - I organized it like that to mostly keep components and their unique logic
+    separate for a modular (?) organization of the project (I think, attempting
+    to follow best practices).
 
-### `npm start`
+### Components and Style: 
+- `AddHabitForm` is the component handling the user input form at the top of the
+rendering.
+- `HabitItem` is the component handling the habit cards upon which each inputted 
+habit item appears on screen after form submission.
+- `HabitList` is the component that displays each of the habit cards in the two
+different categories, based on the functions in `utils.ts`.
+- I have one main style sheet, `App.css` for the global styles, and then one
+additional one with the components that is specific to the `HabitItem` component.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### New Feature: 
+- To expand upon the previous iteration of the app, I added categorization now!
+    - It is pretty similar to what the rest of the app does, I just added an
+    extra selection to the form, a category literal type in `types.ts`, and the 
+    habit card changes it's background color depending on which category the 
+    habit is. 
